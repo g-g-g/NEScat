@@ -1,0 +1,31 @@
+canvas {
+      zoom: 300%;
+      -moz-transform: scale(3);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #content {
+      margin: 0 auto;
+      width: 768px;
+      text-align: center;
+    }
+
+    #message {
+      font-family: sans-serif;
+      padding: 30px;
+      font-weight: 500;
+    }
+
+    #keys {
+      font-size: 14px;
+      font-family: sans-serif;
+      padding-bottom: 15px;
+    }
+
+		#games-list {
+			padding-bottom: 15px;
+		}

@@ -45,6 +45,13 @@ func main() {
 	pairs := make(map[*melody.Session]*melody.Session)
 
 	m.HandleConnect(func(s *melody.Session) {
+
+		//	
+
+		
+
+		//
+
 		mutex.Lock()
 		var partner *melody.Session
 		for player1, player2 := range pairs {
@@ -60,6 +67,9 @@ func main() {
 			s.Write([]byte("join 2"))
 		}
 		mutex.Unlock()
+
+
+		//m.Broadcast(msg)
 	})
 
 	m.HandleMessage(func(s *melody.Session, msg []byte) {
@@ -79,6 +89,5 @@ func main() {
 		delete(pairs, s)
 		mutex.Unlock()
 	})
-
 	r.Run(":5000")
 }
