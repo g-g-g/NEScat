@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
+	//"github.com/gorilla/mux"
 	"github.com/olahol/melody"
 	"net/http"
 	"path/filepath"
@@ -12,6 +13,7 @@ import (
 func main() {
 	r := gin.New()
 	m := melody.New()
+	//n := mux.NewRouter()
 
 	size := 65536
 	m.Upgrader = &websocket.Upgrader{
@@ -25,6 +27,14 @@ func main() {
 
 	r.GET("/", func(c *gin.Context) {
 		http.ServeFile(c.Writer, c.Request, "index.html")
+	})
+
+	r.GET("/single", func(c *gin.Context) {
+		http.ServeFile(c.Writer, c.Request, "single.html")
+	})
+
+	r.GET("/multi", func(c *gin.Context) {
+		http.ServeFile(c.Writer, c.Request, "multi.html")
 	})
 
 	r.GET("/gamelist", func(c *gin.Context) {
