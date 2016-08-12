@@ -12,6 +12,12 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <style>
+    .selectgame {
+        zoom: 90%;
+    }
+    .nes-screen {
+        border-radius: 10px;
+    }
     #rcorners2 {
   font-family: sans-serif;
   font-size: 20px;
@@ -27,6 +33,15 @@ position: fixed;
    left:0;
 }
 
+.nesbtn {
+    padding: 4px;
+}
+/*
+.nes-status {
+    padding: 10px;
+}
+
+*/
      #content {
       margin: 0 auto;
       width: 768px;
@@ -50,6 +65,7 @@ position: fixed;
     }
     #emulator {
       text-align: center;
+      line-height: 150%;
      /* border-radius: 5px;*/
      
     }
@@ -59,6 +75,13 @@ position: fixed;
       padding-bottom: 15px;
       font-weight: 100;
       line-height: 1%;
+    }
+
+    a {
+        font-family: sans-serif;
+    }
+    button {
+        font-family: sans-serif;
     }
 
     #rcorners1 {
@@ -88,6 +111,14 @@ position: fixed;
   #htext {
     display:inline-block;
   }
+  #links {
+      font-size: 14px;
+      font-family: sans-serif;
+      padding-top: 15px;
+      padding-bottom: 0px;
+      font-weight: 100;
+      line-height: 150%;
+    }
 
 
 
@@ -194,7 +225,8 @@ position: fixed;
   <center><h1 id="message">Singleplayer</h1></center>
   <p id="keys">Arrow Keys = Joypad, X = a, Z = b, Enter = start, Ctrl = select</p>
     </div>
-    <div id="emulator"></div><center><button onclick="reloadFunction()">Reload Page</button><a href="/multi"><button>Multiplayer</button></a></center>
+    <div id="emulator"></div>
+    <center><button onclick="reloadFunction()" class="nesbtn">Reload Page</button><a href="/multi"><button class="nesbtn">Multiplayer</button></a></center>
 
     <div id="footer">
 <hr />
@@ -208,7 +240,7 @@ position: fixed;
 
   <!-- Modal content -->
 
-<hr />
+
 </div>
     <!--
     <h2>Controls</h2>
@@ -266,6 +298,7 @@ position: fixed;
       <h2>Help</h2>
     </div>
     <div class="modal-body">
+    <center><img src="http://i.imgur.com/aB11XXK.png" style="width:412px;height:171px;"></center>
       <center><img src="http://i.imgur.com/aRLNTXk.jpg" style="width:412px;height:171px;"></center>
       <center><img src="http://i.imgur.com/UcFz0kj.jpg" style="width:412px;height:171px;"></center>
     </div>
