@@ -15,6 +15,21 @@
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
+
+  #rcorners2 {
+  font-family: sans-serif;
+  font-size: 20px;
+  color: white;
+  font-weight: 300;
+    border-radius: 0px 25px 25px 0px;
+    background: #AC3A66;
+    padding: 20px;
+    width: 150px;
+    height: 90px;
+position: fixed;
+   top: 150px;
+   left:0;
+}
     canvas {
       zoom: 300%;
       -moz-transform: scale(3);
@@ -189,10 +204,10 @@ position: fixed;
 
 
 
-<div  id="rcorners1"><h1  id="htext" style="color:white;">NEScat</h1><img class="thick-green-border" src="jsnes/nescat.png"></div>
+<div  id="rcorners1"><h1  id="htext" style="color:white;">NEScat</h1><img class="thick-green-border" src="jsnes/nescat.png"><br><a id="rcorners2" href="/">Play Singleplayer!</a></div>
 
 <div id="content">
-  <center><h1 id="message">Waiting for Player 2</h1><center>
+  <center><h1 id="message">Multiplayer: Waiting for Player 2</h1><center>
   <p id="games-list">
     <select id="current-game" onchange="newGame()">
       <option value="" disabled="disabled" selected="selected">Please select a game</option>
@@ -202,12 +217,12 @@ position: fixed;
   <div id="emulator"></div></div>
 
 
-<center  style="padding-top: 10px;"><button onclick="reloadFunction()">New Game</button></center>
+<center  style="padding-top: 10px;"><button onclick="reloadFunction()">New Game</button><a href="/"><button>Singleplayer</button></a></center>
 <div id="footer">
 <hr />
 
 <center><img src="http://i.imgur.com/aB11XXK.png" style="width:412px;height:171px;"></center>
-<center><p id="links">Copyright NEScat 2016. Play Multiplayer NES Games Online. By <a href="https://about.me/gautham.gg" target="_blank">Gautham Elango</a>. <button id="myBtn">Help</button> <button id="myBtn1">About</button></p></center>
+<center><p id="links">Copyright NEScat 2016. Play Multiplayer NES Games Online. By <a href="https://about.me/gautham.gg" target="_blank">Gautham Elango</a>. <button id="myBtn">Help</button><button id="myBtn1">About</button></p></center>
 
 
 <!-- The Modal -->
@@ -352,11 +367,11 @@ function startPlaying(data) {
   if (window.player == 1) {
     newGame();
     $("#games-list").show();
-    $("#message").text("You are Player 1");
+    $("#message").text("Multiplayer: You are Player 1");
   }
   if (window.player == 2) {
     $("#games-list").hide();
-    $("#message").text("You are Player 2");
+    $("#message").text("Multiplayer: You are Player 2");
   }
 }
 function newGame() {
@@ -376,7 +391,7 @@ function stopPlaying() {
   }
   clearScreen();
   window.player = 0;
-  $("#message").text("Waiting for Player 2");
+  $("#message").text("Multiplayer: Waiting for Player 2");
 }
 ws.onmessage = function (msg) {
   var parts = msg.data.split(" ");

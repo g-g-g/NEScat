@@ -2,22 +2,208 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>JSNES: A JavaScript NES emulator</title>
+    <title>NEScat - Online Multiplayer NES Games</title>
+    <link rel="shortcut icon" href="/jsnes/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <style>
-    #emulator {
+    #rcorners2 {
+  font-family: sans-serif;
+  font-size: 20px;
+  color: white;
+  font-weight: 300;
+    border-radius: 0px 25px 25px 0px;
+    background: #AC3A66;
+    padding: 20px;
+    width: 150px;
+    height: 90px;
+position: fixed;
+   top: 150px;
+   left:0;
+}
+
+     #content {
+      margin: 0 auto;
+      width: 768px;
       text-align: center;
-      border-radius: 5px;
+      line-height: 1%;
+      zoom: 90%;
 
     }
+    #message {
+      font-family: sans-serif;
+      padding: 30px;
+      font-weight: 100;
+      line-height: 1%;
+      margin-right:10px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+            border-radius: 5px;
+    }
+    #emulator {
+      text-align: center;
+     /* border-radius: 5px;*/
+
+    }
+
+    #rcorners1 {
+  font-family: sans-serif;
+  font-weight: 300;
+    border-radius: 0px 0px 25px 0px;
+    background: #AC3A66;
+    padding: 20px;
+    width: 280px;
+    height: 90px;
+position: fixed;
+   top:0;
+   left:0;
+}
+
+.thick-green-border {
+    border-color: black;
+    border-width: 10px;
+    border-style: solid;
+    border-radius: 50%;
+    width:100px;
+    display:inline-block;
+    margin-left:10px;
+    margin-right:5px;
+  }
+
+  #htext {
+    display:inline-block;
+  }
+
+
+
+
+
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+}
+
+/* Modal Content */
+.modal-content {
+    position: fixed;
+    bottom: 0;
+    background-color: #fefefe;
+    width: 100%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.close1 {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close1:hover,
+.close1:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #AC3A66;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #AC3A66;
+    color: white;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
     </style>
 </head>
 
 <body>
-    <h1>JSNES</h1>
-    
-    <div id="emulator"></div>
-    
+    <div  id="rcorners1"><h1  id="htext" style="color:white;">NEScat</h1><img class="thick-green-border" src="jsnes/nescat.png"><br><a id="rcorners2" href="/multi">Play Multiplayer!</a></div>
+    <div id="content">
+  <center><h1 id="message">Singleplayer</h1></center>
+  <p id="keys">Arrow Keys = Joypad, X = a, Z = b, Enter = start, Ctrl = select</p>
+    </div>
+    <div id="emulator"></div><center><button onclick="reloadFunction()">New Game</button><a href="/multi"><button>Multiplayer</button></a></center>
+
+    <div id="footer">
+<hr />
+
+<center><img src="http://i.imgur.com/aB11XXK.png" style="width:412px;height:171px;"></center>
+<center><p id="links">Copyright NEScat 2016. Play Multiplayer NES Games Online. By <a href="https://about.me/gautham.gg" target="_blank">Gautham Elango</a>. <button id="myBtn">Help</button><button id="myBtn1">About</button></p></center>
+
+
+<!-- The Modal -->
+
+
+  <!-- Modal content -->
+
+<hr />
+</div>
+    <!--
     <h2>Controls</h2>
     <table id="controls">
         <tr>
@@ -65,6 +251,38 @@
             <td>Num-3</td>
         </tr>
     </table>
+    -->
+    <div id="myModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times</span>
+      <h2>Help</h2>
+    </div>
+    <div class="modal-body">
+      <center><img src="http://i.imgur.com/aRLNTXk.jpg" style="width:412px;height:171px;"></center>
+      <center><img src="http://i.imgur.com/UcFz0kj.jpg" style="width:412px;height:171px;"></center>
+    </div>
+    <div class="modal-footer">
+      <h3></h3>
+    </div>
+  </div>
+</div>
+
+<div id="myModal1" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close1">&times</span>
+      <h2>About</h2>
+    </div>
+    <div class="modal-body">
+      <p>Yo.</p>
+    </div>
+    <div class="modal-footer">
+      <h3></h3>
+    </div>
+  </div>
+</div>
+
 
     <script src="jsnes/lib/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="jsnes/lib/dynamicaudio-min.js" type="text/javascript" charset="utf-8"></script>
@@ -114,6 +332,62 @@
                 })
             });
         });
+
+
+        // Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+var modal1 = document.getElementById('myModal1');
+
+// Get the button that opens the modal
+var btn1 = document.getElementById("myBtn1");
+
+// Get the <span> element that closes the modal
+var span1 = document.getElementsByClassName("close1")[0];
+
+// When the user clicks the button, open the modal
+btn1.onclick = function() {
+    modal1.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span1.onclick = function() {
+    modal1.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal1) {
+        modal1.style.display = "none";
+    }
+}
+
+function reloadFunction() {
+  window.location.reload(false); 
+}
     </script>
     <!--[if IE]>
         <script type="text/vbscript" src="source/jsnes-ie-hacks.vbscript"></script>
