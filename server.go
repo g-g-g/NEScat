@@ -99,5 +99,5 @@ func main() {
 		delete(pairs, s)
 		mutex.Unlock()
 	})
-	r.Run(":5000")
+	r.Run(":80")
 }
