@@ -32,6 +32,9 @@ func main() {
 	r.GET("/multi", func(c *gin.Context) {
 		http.ServeFile(c.Writer, c.Request, "multi.html")
 	})
+	r.GET("/sitemap.xml", func(c *gin.Context) {
+		http.ServeFile(c.Writer, c.Request, "sitemap.xml")
+	})
 	r.GET("/gamelist", func(c *gin.Context) {
 		files, _ := filepath.Glob("*.nes")
 		c.JSON(200, gin.H{"games": files})
