@@ -26,17 +26,12 @@ func main() {
 	r.Static("/jsnes", "./jsnes")
 
 	r.GET("/", func(c *gin.Context) {
-		http.ServeFile(c.Writer, c.Request, "single.html")
+		http.ServeFile(c.Writer, c.Request, "index.html")
 	})
 
 	r.GET("/multi", func(c *gin.Context) {
-		http.ServeFile(c.Writer, c.Request, "index.html")
-	})
-/*
-	r.GET("/multi", func(c *gin.Context) {
 		http.ServeFile(c.Writer, c.Request, "multi.html")
 	})
-*/
 	r.GET("/gamelist", func(c *gin.Context) {
 		files, _ := filepath.Glob("*.nes")
 		c.JSON(200, gin.H{"games": files})
