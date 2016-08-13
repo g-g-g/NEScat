@@ -71,6 +71,13 @@ position: fixed;
       font-weight: 100;
       line-height: 1%;
     }
+    .keys {
+      font-size: 14px;
+      font-family: sans-serif;
+      padding-bottom: 15px;
+      font-weight: 100;
+      line-height: 1%;
+    }
     #links {
       font-size: 14px;
       font-family: sans-serif;
@@ -228,13 +235,14 @@ position: fixed;
 <div  id="rcorners1"><h1  id="htext" style="color:white;">NEScat</h1><img class="thick-green-border" src="jsnes/nescat.png"><br><a id="rcorners2" href="/">Play Singleplayer!</a></div>
 
 <div id="content">
-  <center><h1 id="message">Multiplayer: Waiting for Player 2</h1><center>
+  <center><h1 id="message">Multiplayer (beta): Waiting for Player 2</h1><center>
   <p id="games-list">
     <select id="current-game" onchange="newGame()">
       <option value="" disabled="disabled" selected="selected">Please select a game</option>
     </select>
   </p>
-  <p id="keys">Arrow Keys = Joypad, X = a, Z = b, Enter = start, Ctrl = select</p>
+  <p id="keys">Arrow Keys = Joypad, X = a, Z = b, Enter = start, Ctrl = select</p><br>
+  <p class="keys">Note: Multiplayer mode is still in beta so you may notice some issues</p>
   <div id="emulator"></div></div>
 
 
