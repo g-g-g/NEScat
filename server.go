@@ -95,5 +95,5 @@ func main() {
 	// r.Run(":80")
 
 	// SSL with a deployed app
-	// r.RunTLS(":8888", certPath string, privatekeyPath string)
+	// r.RunTLS(":8888", "cert.pem", "privkey.pem")
 }
