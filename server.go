@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
-	//"github.com/gorilla/mux"
 	"github.com/olahol/melody"
 	"net/http"
 	"path/filepath"
@@ -13,7 +12,6 @@ import (
 func main() {
 	r := gin.New()
 	m := melody.New()
-	//n := mux.NewRouter()
 
 	size := 65536
 	m.Upgrader = &websocket.Upgrader{
@@ -32,9 +30,11 @@ func main() {
 	r.GET("/multi", func(c *gin.Context) {
 		http.ServeFile(c.Writer, c.Request, "multi.html")
 	})
+
 	r.GET("/sitemap.xml", func(c *gin.Context) {
 		http.ServeFile(c.Writer, c.Request, "sitemap.xml")
 	})
+
 	r.GET("/gamelist", func(c *gin.Context) {
 		files, _ := filepath.Glob("*.nes")
 		c.JSON(200, gin.H{"games": files})
@@ -53,13 +53,6 @@ func main() {
 	pairs := make(map[*melody.Session]*melody.Session)
 
 	m.HandleConnect(func(s *melody.Session) {
-
-		//	
-
-		
-
-		//
-
 		mutex.Lock()
 		var partner *melody.Session
 		for player1, player2 := range pairs {
@@ -75,9 +68,6 @@ func main() {
 			s.Write([]byte("join 2"))
 		}
 		mutex.Unlock()
-
-
-		//m.Broadcast(msg)
 	})
 
 	m.HandleMessage(func(s *melody.Session, msg []byte) {
@@ -97,5 +87,13 @@ func main() {
 		delete(pairs, s)
 		mutex.Unlock()
 	})
-	r.Run(":5000")
+
+	// Local Testing
+	 r.Run(":5000")
+
+	// For a deployed app
+	// r.Run(":80")
+
+	// SSL with a deployed app
+	// r.RunTLS(":8888", certPath string, privatekeyPath string)
 }
