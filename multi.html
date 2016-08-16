@@ -569,6 +569,10 @@ if (browserInfo.indexOf('Firefox') >= 0) {
 
   $( ".firefox" ).append( "<br><p id='links' style='color:red;'>You are running Mozilla Firefox, which is known to cause issues with multiplayer. Please use another browser like Chrome, Edge, IE, Safari or Opera. We are working to fix this issue.</p>" );
 }
+
+if (window.location.protocol == "https:") {
+  window.location.href = "http:" + window.location.href.substring(window.location.protocol.length);
+}
 </script>
 </body>
 </html>
