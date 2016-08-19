@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta name="description" content="Play multiplayer NES games online.">
@@ -271,6 +272,7 @@ position: fixed;
       <h2>Help</h2>
     </div>
     <div class="modal-body">
+    <center><img src="https://i.imgur.com/aB11XXK.png" style="width:412px;height:171px;"></center>
       <center><img src="https://i.imgur.com/aRLNTXk.jpg" style="width:412px;height:171px;"></center>
       <center><img src="https://i.imgur.com/UcFz0kj.jpg" style="width:412px;height:171px;"></center>
     </div>
@@ -328,6 +330,10 @@ setTimeout(function(){
 $options.eq(random).prop('selected', true);
 }, 2);
 */
+
+if (window.location.protocol == "https:") {
+  window.location.href = "http:" + window.location.href.substring(window.location.protocol.length);
+}
 
 $(function () {
 var url = "ws://" + window.location.host + "/ws";
@@ -542,9 +548,6 @@ window.onclick = function(event) {
 
 function reloadFunction() {
   window.location.reload(false); 
-}
-if (window.location.protocol == "https:") {
-  window.location.href = "http:" + window.location.href.substring(window.location.protocol.length);
 }
 function getBrowserInfo()
 {

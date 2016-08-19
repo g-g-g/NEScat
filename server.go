@@ -96,4 +96,6 @@ func main() {
 
 	// SSL with a deployed app
 	// r.RunTLS(":443", "cert.pem", "privkey.pem")
+	// Use SSL only on Server side
+
 }
