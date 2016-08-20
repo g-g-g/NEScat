@@ -53,18 +53,17 @@ let &cpo=s:cpo_save
 unlet s:cpo_save
 set autoindent
 set background=dark
-set backspace=indent,eol,start
+set backspace=2
 set copyindent
-set history=50
-set nomodeline
-set ruler
-set runtimepath=~/.vim,~/.vim/bundle/vim-colors-solarized,~/.vim/bundle/vim-go,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim74,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
-set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+set fileencodings=ucs-bom,utf-8,default,latin1
+set modelines=0
+set runtimepath=~/.vim,~/.vim/bundle/vim-colors-solarized,~/.vim/bundle/vim-go,/usr/share/vim/vimfiles,/usr/share/vim/vim73,/usr/share/vim/vimfiles/after,~/.vim/after
 set tabstop=4
+set window=0
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/Go/src/github.com/remotedev/remotedev
+cd ~/Go/src/github.com/melody-jsnes
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
@@ -86,12 +85,10 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
-exe '1resize ' . ((&lines * 10 + 17) / 34)
-exe '2resize ' . ((&lines * 10 + 17) / 34)
-exe '3resize ' . ((&lines * 10 + 17) / 34)
+exe '1resize ' . ((&lines * 12 + 20) / 40)
+exe '2resize ' . ((&lines * 12 + 20) / 40)
+exe '3resize ' . ((&lines * 12 + 20) / 40)
 argglobal
-setlocal keymap=
-setlocal noarabic
 setlocal autoindent
 setlocal nobinary
 setlocal bufhidden=
@@ -105,8 +102,6 @@ setlocal colorcolumn=
 setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
 setlocal commentstring=<!--%s-->
 setlocal complete=.,w,b,u,t,i
-setlocal concealcursor=
-setlocal conceallevel=0
 setlocal completefunc=
 setlocal copyindent
 setlocal cryptmethod=
@@ -140,8 +135,8 @@ setlocal iminsert=0
 setlocal imsearch=0
 setlocal include=
 setlocal includeexpr=
-setlocal indentexpr=HtmlIndent()
-setlocal indentkeys=o,O,<Return>,<>>,{,},!^F
+setlocal indentexpr=HtmlIndentGet(v:lnum)
+setlocal indentkeys=o,O,*<Return>,<>>,{,}
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
 setlocal keywordprg=
@@ -150,7 +145,7 @@ setlocal nolisp
 setlocal nolist
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:],<:>
-setlocal nomodeline
+setlocal modeline
 setlocal modifiable
 setlocal nrformats=octal,hex
 set number
@@ -163,15 +158,13 @@ setlocal nopreviewwindow
 setlocal quoteescape=\\
 setlocal noreadonly
 setlocal norelativenumber
-setlocal norightleft
-setlocal rightleftcmd=search
 setlocal noscrollbind
 setlocal shiftwidth=8
 setlocal noshortname
 setlocal nosmartindent
 setlocal softtabstop=0
 setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellcapcheck=
 setlocal spellfile=
 setlocal spelllang=en
 setlocal statusline=
@@ -191,7 +184,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 5) / 10)
+let s:l = 1 - ((0 * winheight(0) + 6) / 12)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -200,8 +193,6 @@ normal! 0
 wincmd w
 argglobal
 edit index.html
-setlocal keymap=
-setlocal noarabic
 setlocal autoindent
 setlocal nobinary
 setlocal bufhidden=
@@ -215,8 +206,6 @@ setlocal colorcolumn=
 setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
 setlocal commentstring=<!--%s-->
 setlocal complete=.,w,b,u,t,i
-setlocal concealcursor=
-setlocal conceallevel=0
 setlocal completefunc=
 setlocal copyindent
 setlocal cryptmethod=
@@ -250,8 +239,8 @@ setlocal iminsert=0
 setlocal imsearch=0
 setlocal include=
 setlocal includeexpr=
-setlocal indentexpr=HtmlIndent()
-setlocal indentkeys=o,O,<Return>,<>>,{,},!^F
+setlocal indentexpr=HtmlIndentGet(v:lnum)
+setlocal indentkeys=o,O,*<Return>,<>>,{,}
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
 setlocal keywordprg=
@@ -260,7 +249,7 @@ setlocal nolisp
 setlocal nolist
 setlocal makeprg=
 setlocal matchpairs=(:),{:},[:],<:>
-setlocal nomodeline
+setlocal modeline
 setlocal modifiable
 setlocal nrformats=octal,hex
 set number
@@ -273,15 +262,13 @@ setlocal nopreviewwindow
 setlocal quoteescape=\\
 setlocal noreadonly
 setlocal norelativenumber
-setlocal norightleft
-setlocal rightleftcmd=search
 setlocal noscrollbind
 setlocal shiftwidth=8
 setlocal noshortname
 setlocal nosmartindent
 setlocal softtabstop=0
 setlocal nospell
-setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellcapcheck=
 setlocal spellfile=
 setlocal spelllang=en
 setlocal statusline=
@@ -301,7 +288,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 5) / 10)
+let s:l = 1 - ((0 * winheight(0) + 6) / 12)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -326,8 +313,6 @@ onoremap <buffer> <silent> af :call go#textobj#Function('a')
 nnoremap <buffer> <silent> gd :GoDef
 xnoremap <buffer> <silent> if :call go#textobj#Function('i')
 onoremap <buffer> <silent> if :call go#textobj#Function('i')
-setlocal keymap=
-setlocal noarabic
 setlocal autoindent
 setlocal nobinary
 setlocal bufhidden=
@@ -341,8 +326,6 @@ setlocal colorcolumn=
 setlocal comments=s1:/*,mb:*,ex:*/,://
 setlocal commentstring=//\ %s
 setlocal complete=.,w,b,u,t,i
-setlocal concealcursor=
-setlocal conceallevel=0
 setlocal completefunc=
 setlocal copyindent
 setlocal cryptmethod=
@@ -386,7 +369,7 @@ setlocal nolisp
 setlocal nolist
 setlocal makeprg=go\ build
 setlocal matchpairs=(:),{:},[:]
-setlocal nomodeline
+setlocal modeline
 setlocal modifiable
 setlocal nrformats=octal,hex
 set number
@@ -399,8 +382,6 @@ setlocal nopreviewwindow
 setlocal quoteescape=\\
 setlocal noreadonly
 setlocal norelativenumber
-setlocal norightleft
-setlocal rightleftcmd=search
 setlocal noscrollbind
 setlocal shiftwidth=8
 setlocal noshortname
@@ -427,7 +408,7 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 5) / 10)
+let s:l = 1 - ((0 * winheight(0) + 6) / 12)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
@@ -435,9 +416,9 @@ normal! zt
 normal! 0
 wincmd w
 3wincmd w
-exe '1resize ' . ((&lines * 10 + 17) / 34)
-exe '2resize ' . ((&lines * 10 + 17) / 34)
-exe '3resize ' . ((&lines * 10 + 17) / 34)
+exe '1resize ' . ((&lines * 12 + 20) / 40)
+exe '2resize ' . ((&lines * 12 + 20) / 40)
+exe '3resize ' . ((&lines * 12 + 20) / 40)
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
