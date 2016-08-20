@@ -91,7 +91,6 @@ func main() {
 	// Local Testing
 	r.Run(":5000")
 
-	// For a deployed app
 	// r.Run(":80")
 
 	// SSL with a deployed app
