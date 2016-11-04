@@ -243,7 +243,7 @@ position: fixed;
 <hr />
 
 <center><img src="https://i.imgur.com/aB11XXK.png" style="width:412px;height:171px;"></center>
-<center><p id="links">Copyright NEScat 2016. Play Multiplayer NES Games Online. By <a href="https://about.me/gautham.gg" target="_blank">Gautham Elango</a>, a <a href="http://gcubed.co">gCubed</a> product. <button id="myBtn">Help</button><button id="myBtn1">About</button></p></center>
+<center><p id="links">Copyright NEScat 2016. Play Multiplayer NES Games Online. By <a href="https://about.me/gautham.gg" target="_blank">Gautham Elango</a>, a <a href="http://gcubed.co" target="_blank">gCubed</a> product. <button id="myBtn">Help</button><button id="myBtn1">About</button></p></center>
 
 
 
@@ -393,7 +393,14 @@ position: fixed;
             });
         });
 
+if (window.location.href == "http://www.nescat.co/" || window.location.href == "http://nescat.co/" || window.location.href == "http://nescat.net/" ) {
+		  window.location.href = "http://www.nescat.net";
+}
 
+if (window.location.href == "https://nescat.net/") {
+	window.location.href = "https://www.nescat.net";
+}
+var zoombtn = document.getElementByClass("#zoombtn");
         // Get the modal
 var modal = document.getElementById('myModal');
 
@@ -449,7 +456,7 @@ function reloadFunction() {
   window.location.reload(false); 
 }
 
-
+$('.nes-zoom').remove();
     </script>
     <!--[if IE]>
         <script type="text/vbscript" src="source/jsnes-ie-hacks.vbscript"></script>

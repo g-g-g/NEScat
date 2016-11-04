@@ -89,12 +89,12 @@ func main() {
 	})
 
 	// Local Testing
-	r.Run(":5000")
+	// r.Run(":5000")
 
 	// Only for deployed applications
 	// r.Run(":80")
 
 	// SSL with a deployed app
-	// r.RunTLS(":443", "cert.pem", "privkey.pem")
+	r.RunTLS(":443", "cert.pem", "privkey.pem")
 
 }

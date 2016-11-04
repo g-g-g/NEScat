@@ -254,7 +254,7 @@ position: fixed;
 <hr />
 
 <center><img src="https://i.imgur.com/aB11XXK.png" style="width:412px;height:171px;"></center>
-<center><p class="firefox" id="links">Copyright NEScat 2016. Play Multiplayer NES Games Online. By <a href="https://about.me/gautham.gg" target="_blank">Gautham Elango</a>. <button id="myBtn">Help</button><button id="myBtn1">About</button></p></center>
+<center><p class="firefox" id="links">Copyright NEScat 2016. Play Multiplayer NES Games Online. By <a href="https://about.me/gautham.gg" target="_blank">Gautham Elango</a>, a <a href="https://www.gcubed.co" target="_blank">gCubed</a> product. <button id="myBtn">Help</button><button id="myBtn1">About</button></p></center>
 
 
 <!-- The Modal -->
@@ -335,6 +335,10 @@ if (window.location.protocol == "https:") {
   window.location.href = "http:" + window.location.href.substring(window.location.protocol.length);
 }
 
+
+if (window.location.href == "http://nescat.co/multi" || window.location.href == "http://www.nescat.co/multi" || window.location.href == "http://nescat.net/multi") {
+		  window.location.href = "http://www.nescat.net/multi";
+}
 $(function () {
 var url = "ws://" + window.location.host + "/ws";
 var ws = new WebSocket(url);
