@@ -1,6 +1,5 @@
 # NEScat
 
-
 NEScat is an open-source web application where you can play singleplayer and multiplayer NES games.
       It is based on <a href="https://github.com/olahol">@olahol</a>'s <a href="https://github.com/olahol/melody-jsnes">olahol/melody-jsnes</a> project.
       I use the Go programming language and the Go HTTP Server. I also use the Go Melody framework. Multiplayer is done with WebSockets, JSNES is used to emulate the NES ROMS with JavaScript. Bootstrap is used for the frontend. I run the app on AWS EC2 Ubuntu Server 14.04.
