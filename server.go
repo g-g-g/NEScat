@@ -8,9 +8,18 @@ import (
 	"path/filepath"
 	"sync"
 	"os"
+	"log"
 )
 
 func main() {
+
+port := os.Getenv("PORT")
+
+
+
+if port == "" {
+                log.Fatal("$PORT must be set")
+}
 	r := gin.New()
 	m := melody.New()
 
@@ -89,13 +98,15 @@ func main() {
 		mutex.Unlock()
 	})
 
-port := os.Getenv("PORT")
 
 
 
 
 
-	 r.Run(":"+port)
+
+
+
+	 r.Run(":" + port)
 
 
 
