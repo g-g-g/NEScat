@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"path/filepath"
 	"sync"
+	"os"
 )
 
 func main() {
@@ -90,9 +91,9 @@ func main() {
 
 port := os.Getenv("PORT")
 
-	if port == "" {
-		log.Fatal("$PORT must be set")
-}
+
+
+
 
 	 r.Run(":"+port)
 
