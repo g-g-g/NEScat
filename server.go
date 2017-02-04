@@ -88,13 +88,18 @@ func main() {
 		mutex.Unlock()
 	})
 
-	// Local Testing
-	// r.Run(":5000")
+port := os.Getenv("PORT")
 
-	// Only for deployed applications
-	// r.Run(":80")
+	if port == "" {
+		log.Fatal("$PORT must be set")
+}
 
-	// SSL with a deployed app
-	r.RunTLS(":443", "cert.pem", "privkey.pem")
+	 r.Run(":"+port)
+
+
+
+
+
+
 
 }
