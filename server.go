@@ -7,19 +7,9 @@ import (
 	"net/http"
 	"path/filepath"
 	"sync"
-
-
 )
 
 func main() {
-
-//port := os.Getenv("PORT")
-
-
-
-//if port == "" {
-  //              log.Fatal("$PORT must be set")
-//}
 	r := gin.New()
 	m := melody.New()
 
@@ -32,6 +22,8 @@ func main() {
 	m.Config.MessageBufferSize = 2048
 
 	r.Static("/jsnes", "./jsnes")
+
+	r.Static("/assets", "./assets")
 
 	r.GET("/", func(c *gin.Context) {
 		http.ServeFile(c.Writer, c.Request, "index.html")
@@ -98,20 +90,5 @@ func main() {
 		mutex.Unlock()
 	})
 
-
-
-
-
-
-
-
-
 	 r.Run(":8000")
-
-
-
-
-
-
-
 }
