@@ -7,19 +7,19 @@ import (
 	"net/http"
 	"path/filepath"
 	"sync"
-	"os"
-	"log"
+
+
 )
 
 func main() {
 
-port := os.Getenv("PORT")
+//port := os.Getenv("PORT")
 
 
 
-if port == "" {
-                log.Fatal("$PORT must be set")
-}
+//if port == "" {
+  //              log.Fatal("$PORT must be set")
+//}
 	r := gin.New()
 	m := melody.New()
 
@@ -106,7 +106,7 @@ if port == "" {
 
 
 
-	 r.Run(":" + port)
+	 r.Run(":8000")
 
 
 
