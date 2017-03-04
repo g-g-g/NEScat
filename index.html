@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
+<html>
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="description" content="Play multiplayer and singleplayer NES games online.">
     <title>NEScat - Online Multiplayer and Singleplayer NES Games</title>
     <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/index.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/assets/index.css">
 </head>
 <body>
     <div  id="rcorners1"><h1  id="htext" style="color:white;">NEScat</h1><img class="thick-green-border" src="https://s3.amazonaws.com/nescat/assets/nescat.png"><br><a id="rcorners2" href="/multi">Play Multiplayer!</a></div>
@@ -21,17 +21,113 @@
     <div id="footer">
 <hr />
 <center><p id="links">Copyright NEScat 2016. Play Multiplayer NES Games Online. By <a href="https://gauthamelango.com" target="_blank">Gautham Elango</a>, a <a href="http://gcubed.co" target="_blank">gCubed</a> product.</p></center>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://s3.amazonaws.com/nescat/lib/dynamicaudio-min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://s3.amazonaws.com/nescat/source/nes.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://s3.amazonaws.com/nescat/source/utils.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://s3.amazonaws.com/nescat/source/cpu.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://s3.amazonaws.com/nescat/source/keyboard.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://s3.amazonaws.com/nescat/source/mappers.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://s3.amazonaws.com/nescat/source/papu.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://s3.amazonaws.com/nescat/source/ppu.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://s3.amazonaws.com/nescat/source/rom.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://s3.amazonaws.com/nescat/source/ui.js" type="text/javascript" charset="utf-8"></script>
-    <script src="assets/index.js" type="text/javascript" charset="utf-8"></script>
+<script src="jsnes/lib/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="jsnes/lib/dynamicaudio-min.js" type="text/javascript" charset="utf-8"></script>
+<script src="jsnes/source/nes.js" type="text/javascript" charset="utf-8"></script>
+<script src="jsnes/source/utils.js" type="text/javascript" charset="utf-8"></script>
+<script src="jsnes/source/cpu.js" type="text/javascript" charset="utf-8"></script>
+<script src="jsnes/source/keyboard.js" type="text/javascript" charset="utf-8"></script>
+<script src="jsnes/source/mappers.js" type="text/javascript" charset="utf-8"></script>
+<script src="jsnes/source/papu.js" type="text/javascript" charset="utf-8"></script>
+<script src="jsnes/source/ppu.js" type="text/javascript" charset="utf-8"></script>
+<script src="jsnes/source/rom.js" type="text/javascript" charset="utf-8"></script>
+<script src="jsnes/source/ui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+        var nes;
+        $(function() {
+            nes = new JSNES({
+                'ui': $('#emulator').JSNESUI({
+                    "Working": [
+                        //['Bubble Bobble', 'jsnes/roms/Bubble Bobble (U).nes'],
+                        
+                        ['Konami Contra 1988', 'jsnes/roms/Contra.nes'],
+                        ['Donkey Kong 1981', 'jsnes/roms/Donkey.nes'],
+                        ['Dr. Mario', 'jsnes/roms/DrMario.nes'],
+                        ['Golf', 'jsnes/roms/Golf.nes'],
+                        ['The Legend of Zelda', 'jsnes/roms/Zelda.nes'],
+                        ['Lemmings', 'jsnes/roms/Lemmings.nes'],
+                        ['Lifeforce', 'jsnes/roms/Lifeforce.nes'],
+                        
+                        ['Mario Bros 1983', 'jsnes/roms/MarioBros.nes'],
+                        ['Mega Man', 'jsnes/roms/MegaMan.nes'],
+                        ['Pac-Man', 'jsnes/roms/Pac-Man.nes'],
+                        ['Super Mario Bros 1985', 'jsnes/roms/SuperMarioBros.nes'],
+                        ['Tennis', 'jsnes/roms/Tennis.nes'],
+                        //['Tetris', 'jsnes/roms/Tetris (U) [!].nes'],
+                        ['Concentration Room', 'jsnes/roms/croom/croom.nes'],
+                        ['LJ65', 'jsnes/roms/lj65/lj65.nes'],
+                        ['Tetris 2 1987', 'jsnes/roms/Tetris2.nes'],
+                        ['Zelda II - The Adventure of Link', 'jsnes/roms/Zelda2.nes']
+                    ]
+
+                })
+            });
+        });
+
+if (window.location.href == "/web/20161106234311/http://www.nescat.co/" || window.location.href == "/web/20161106234311/http://nescat.co/" || window.location.href == "/web/20161106234311/http://nescat.net/" ) {
+          window.location.href = "/web/20161106234311/http://www.nescat.net";
+}
+
+if (window.location.href == "/web/20161106234311/https://nescat.net/") {
+    window.location.href = "/web/20161106234311/https://www.nescat.net";
+}
+var zoombtn = document.getElementByClass("#zoombtn");
+        // Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+var modal1 = document.getElementById('myModal1');
+
+// Get the button that opens the modal
+var btn1 = document.getElementById("myBtn1");
+
+// Get the <span> element that closes the modal
+var span1 = document.getElementsByClassName("close1")[0];
+
+// When the user clicks the button, open the modal
+btn1.onclick = function() {
+    modal1.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span1.onclick = function() {
+    modal1.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal1) {
+        modal1.style.display = "none";
+    }
+}
+
+function reloadFunction() {
+  window.location.reload(false); 
+}
+
+$('.nes-zoom').remove();
+</script>
 </body>
 </html>
