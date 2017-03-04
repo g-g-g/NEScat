@@ -13,121 +13,26 @@
 <body>
     <div  id="rcorners1"><h1  id="htext" style="color:white;">NEScat</h1><img class="thick-green-border" src="https://s3.amazonaws.com/nescat/assets/nescat.png"><br><a id="rcorners2" href="/multi">Play Multiplayer!</a></div>
     <div id="content">
-  <center><h1 id="message">Singleplayer</h1></center>
-  <p id="keys">Arrow Keys = Joypad, X = a, Z = b, Enter = start, Ctrl = select</p>
+    <center><h1 id="message">Singleplayer</h1></center>
+    <p id="keys">Arrow Keys = Joypad, X = a, Z = b, Enter = start, Ctrl = select</p>
     </div>
     <div id="emulator"></div>
     <center><button onclick="reloadFunction()" class="nesbtn">Reload Page</button><a href="/multi"><button class="nesbtn">Multiplayer (beta)</button></a></center>
     <div id="footer">
-<hr />
-<center><p id="links">Copyright NEScat 2016. Play Multiplayer NES Games Online. By <a href="https://gauthamelango.com" target="_blank">Gautham Elango</a>, a <a href="http://gcubed.co" target="_blank">gCubed</a> product.</p></center>
-<script src="jsnes/lib/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="jsnes/lib/dynamicaudio-min.js" type="text/javascript" charset="utf-8"></script>
-<script src="jsnes/source/nes.js" type="text/javascript" charset="utf-8"></script>
-<script src="jsnes/source/utils.js" type="text/javascript" charset="utf-8"></script>
-<script src="jsnes/source/cpu.js" type="text/javascript" charset="utf-8"></script>
-<script src="jsnes/source/keyboard.js" type="text/javascript" charset="utf-8"></script>
-<script src="jsnes/source/mappers.js" type="text/javascript" charset="utf-8"></script>
-<script src="jsnes/source/papu.js" type="text/javascript" charset="utf-8"></script>
-<script src="jsnes/source/ppu.js" type="text/javascript" charset="utf-8"></script>
-<script src="jsnes/source/rom.js" type="text/javascript" charset="utf-8"></script>
-<script src="jsnes/source/ui.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript" charset="utf-8">
-        var nes;
-        $(function() {
-            nes = new JSNES({
-                'ui': $('#emulator').JSNESUI({
-                    "Working": [
-                        //['Bubble Bobble', 'jsnes/roms/Bubble Bobble (U).nes'],
-                        
-                        ['Konami Contra 1988', 'assets/roms/Contra.nes'],
-                        ['Donkey Kong 1981', 'assets/roms/Donkey.nes'],
-                        ['Dr. Mario', 'assets/roms/DrMario.nes'],
-                        ['Golf', 'assets/roms/Golf.nes'],
-                        ['The Legend of Zelda', 'assets/roms/Zelda.nes'],
-                        ['Lemmings', 'assets/roms/Lemmings.nes'],
-                        ['Lifeforce', 'assets/roms/Lifeforce.nes'],
-                        
-                        ['Mario Bros 1983', 'assets/roms/MarioBros.nes'],
-                        ['Mega Man', 'assets/roms/MegaMan.nes'],
-                        ['Pac-Man', 'assets/roms/Pac-Man.nes'],
-                        ['Super Mario Bros 1985', 'assets/roms/SuperMarioBros.nes'],
-                        ['Tennis', 'assets/roms/Tennis.nes'],
-                        //['Tetris', 'jsnes/roms/Tetris (U) [!].nes'],
-                        ['Concentration Room', 'assets/roms/croom/croom.nes'],
-                        ['LJ65', 'assets/roms/lj65/lj65.nes'],
-                        ['Tetris 2 1987', 'assets/roms/Tetris2.nes'],
-                        ['Zelda II - The Adventure of Link', 'assets/roms/Zelda2.nes']
-                    ]
+    <hr />
+    <center><p id="links">MIT License 2017. NEScat, a <a href="https://www.gcubed.co">gCubed</a> product by <a href="https://gauthamelango.com">gautham elango</a></p></center>
 
-                })
-            });
-        });
-
-if (window.location.href == "/web/20161106234311/http://www.nescat.co/" || window.location.href == "/web/20161106234311/http://nescat.co/" || window.location.href == "/web/20161106234311/http://nescat.net/" ) {
-          window.location.href = "/web/20161106234311/http://www.nescat.net";
-}
-
-if (window.location.href == "/web/20161106234311/https://nescat.net/") {
-    window.location.href = "/web/20161106234311/https://www.nescat.net";
-}
-var zoombtn = document.getElementByClass("#zoombtn");
-        // Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-
-var modal1 = document.getElementById('myModal1');
-
-// Get the button that opens the modal
-var btn1 = document.getElementById("myBtn1");
-
-// Get the <span> element that closes the modal
-var span1 = document.getElementsByClassName("close1")[0];
-
-// When the user clicks the button, open the modal
-btn1.onclick = function() {
-    modal1.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span1.onclick = function() {
-    modal1.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal1) {
-        modal1.style.display = "none";
-    }
-}
-
-function reloadFunction() {
-  window.location.reload(false); 
-}
-
-$('.nes-zoom').remove();
-</script>
+    <script src="jsnes/lib/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jsnes/lib/dynamicaudio-min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jsnes/source/nes.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jsnes/source/utils.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jsnes/source/cpu.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jsnes/source/keyboard.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jsnes/source/mappers.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jsnes/source/papu.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jsnes/source/ppu.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jsnes/source/rom.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jsnes/source/ui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="assets/index.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
