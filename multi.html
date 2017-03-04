@@ -330,15 +330,6 @@ setTimeout(function(){
 $options.eq(random).prop('selected', true);
 }, 2);
 */
-
-if (window.location.protocol == "https:") {
-  window.location.href = "http:" + window.location.href.substring(window.location.protocol.length);
-}
-
-
-if (window.location.href == "http://nescat.co/multi" || window.location.href == "http://www.nescat.co/multi" || window.location.href == "http://nescat.net/multi") {
-		  window.location.href = "http://www.nescat.net/multi";
-}
 $(function () {
 var url = "ws://" + window.location.host + "/ws";
 var ws = new WebSocket(url);
