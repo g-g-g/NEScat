@@ -1,94 +1,97 @@
-    .selectgame {
-      zoom: 90%;
-    }
-    .nes-screen {
-      border-radius: 10px;
-    }
-    #rcorners2 {
-      font-family: sans-serif;
-      font-size: 20px;
-      color: white;
-      font-weight: 300;
-      border-radius: 0px 25px 25px 0px;
-      background: #AC3A66;
-      padding: 20px;
-      width: 150px;
-      height: 90px;
-      position: fixed;
-      top: 150px;
-      left:0;
-    }
-    .nesbtn {
-      padding: 4px;
-    }
-     #content {
-      margin: 0 auto;
-      width: 768px;
-      text-align: center;
-      line-height: 1%;
-      zoom: 90%;
+.selectgame {
+zoom: 90%;
+}
+.nes-screen {
+border-radius: 10px;
+}
+.center {
+text-align: center;
+}
+#rcorners2 {
+font-family: sans-serif;
+font-size: 20px;
+color: white;
+font-weight: 300;
+border-radius: 0px 25px 25px 0px;
+background: #AC3A66;
+padding: 20px;
+width: 150px;
+height: 90px;
+position: fixed;
+top: 150px;
+left:0;
+}
+.nesbtn {
+padding: 4px;
+}
+#content {
+margin: 0 auto;
+width: 768px;
+text-align: center;
+line-height: 1%;
+zoom: 90%;
 
-    }
-    #message {
-      font-family: sans-serif;
-      padding: 30px;
-      font-weight: 100;
-      line-height: 1%;
-      margin-right:10px;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      border-radius: 5px;
-    }
-    #emulator {
-      text-align: center;
-      line-height: 150%;
-    }
-    #keys {
-      font-size: 14px;
-      font-family: sans-serif;
-      padding-bottom: 15px;
-      font-weight: 100;
-      line-height: 1%;
-    }
-    a {
-      font-family: sans-serif;
-    }
-    button {
-      font-family: sans-serif;
-    }
-    #rcorners1 {
-      font-family: sans-serif;
-      font-weight: 300;
-      border-radius: 0px 0px 25px 0px;
-      background: #AC3A66;
-      padding: 20px;
-      width: 280px;
-      height: 90px;
-      position: fixed;
-      top:0;
-      left:0;
-    }
-    .thick-green-border {
-      border-color: black;
-      border-width: 10px;
-      border-style: solid;
-      border-radius: 50%;
-      width:100px;
-      display:inline-block;
-      margin-left:10px;
-      margin-right:5px;
-    }
+}
+#message {
+font-family: sans-serif;
+padding: 30px;
+font-weight: 100;
+line-height: 1%;
+margin-right:10px;
+}
+* {
+margin: 0;
+padding: 0;
+border-radius: 5px;
+}
+#emulator {
+text-align: center;
+line-height: 150%;
+}
+#keys {
+font-size: 14px;
+font-family: sans-serif;
+padding-bottom: 15px;
+font-weight: 100;
+line-height: 1%;
+}
+a {
+font-family: sans-serif;
+}
+button {
+font-family: sans-serif;
+}
+#rcorners1 {
+font-family: sans-serif;
+font-weight: 300;
+border-radius: 0px 0px 25px 0px;
+background: #AC3A66;
+padding: 20px;
+width: 280px;
+height: 90px;
+position: fixed;
+top:0;
+left:0;
+}
+.thick-green-border {
+border-color: black;
+border-width: 10px;
+border-style: solid;
+border-radius: 50%;
+width:100px;
+display:inline-block;
+margin-left:10px;
+margin-right:5px;
+}
 
-    #htext {
-      display:inline-block;
-    }
-    #links {
-        font-size: 14px;
-        font-family: sans-serif;
-        padding-top: 15px;
-        padding-bottom: 0px;
-        font-weight: 100;
-        line-height: 150%;
-    }
+#htext {
+display:inline-block;
+}
+#links {
+font-size: 14px;
+font-family: sans-serif;
+padding-top: 15px;
+padding-bottom: 0px;
+font-weight: 100;
+line-height: 150%;
+}
