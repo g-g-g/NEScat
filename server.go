@@ -33,6 +33,10 @@ func main() {
 		http.ServeFile(c.Writer, c.Request, "multi.html")
 	})
 
+        r.GET("/robots.txt", func(c *gin.Context) {
+                http.ServeFile(c.Writer, c.Request, "robots.txt")
+        })
+
 	r.GET("/sitemap.xml", func(c *gin.Context) {
 		http.ServeFile(c.Writer, c.Request, "sitemap.xml")
 	})
