@@ -25,7 +25,7 @@ $(function() {
     });
 });
 
-if (window.location.href == "http://nescat.gcubed.co/") {
-          window.location.href = "https://nescat.gcubed.co/";
+if (window.location.href == "https://nescat.gcubed.co/") {
+          window.location.href = "http://nescat.gcubed.co/";
 }
 $("#javascript").remove(); 
