@@ -58,6 +58,9 @@
 <script src="jsnes/source/rom.js" type="text/javascript" charset="utf-8"></script>
 <script src="jsnes/source/ui.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
+if (window.location.href == "https://nescat.gcubed.co/multi") {
+          window.location.href = "http://nescat.gcubed.co/multi";
+}
 $(function () {
 var url = "ws://" + window.location.host + "/ws";
 var ws = new WebSocket(url);

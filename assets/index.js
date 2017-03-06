@@ -1,3 +1,6 @@
+if (window.location.href == "http://nescat.gcubed.co/") {
+          window.location.href = "https://nescat.gcubed.co/";
+}
 var nes;
 $(function() {
     nes = new JSNES({
