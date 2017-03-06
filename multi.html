@@ -1,38 +1,9 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta name="description" content="Play multiplayer NES games online.">
-<link rel="shortcut icon" href="/jsnes/favicon.ico" type="image/x-icon">
-
-<link rel="icon" href="/jsnes/favicon.ico" type="image/x-icon">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Multiplayer: NEScat - Online NES Games</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+  <title>melody-jsnes</title>
   <style>
-
-  #rcorners2 {
-  font-family: sans-serif;
-  font-size: 20px;
-  color: white;
-  font-weight: 300;
-    border-radius: 0px 25px 25px 0px;
-    background: #AC3A66;
-    padding: 20px;
-    width: 150px;
-    height: 90px;
-position: fixed;
-   top: 150px;
-   left:0;
-}
     canvas {
       zoom: 300%;
       -moz-transform: scale(3);
@@ -40,268 +11,40 @@ position: fixed;
     * {
       margin: 0;
       padding: 0;
-            border-radius: 5px;
     }
     #content {
       margin: 0 auto;
       width: 768px;
       text-align: center;
-      line-height: 1%;
-      zoom: 90%;
-
     }
     #message {
       font-family: sans-serif;
       padding: 30px;
-      font-weight: 100;
-      line-height: 1%;
-      margin-right:10px;
+      font-weight: 500;
     }
     #keys {
       font-size: 14px;
       font-family: sans-serif;
       padding-bottom: 15px;
-      font-weight: 100;
-      line-height: 1%;
-    }
-    .keys {
-      font-size: 14px;
-      font-family: sans-serif;
-      padding-bottom: 15px;
-      font-weight: 100;
-      line-height: 1%;
-    }
-    #links {
-      font-size: 14px;
-      font-family: sans-serif;
-      padding-top: 15px;
-      padding-bottom: 0px;
-      font-weight: 100;
-      line-height: 150%;
     }
     #games-list {
       padding-bottom: 15px;
     }
-
-    a {
-        font-family: sans-serif;
-    }
-    button {
-        font-family: sans-serif;
-    }
-
-    .nesbtn {
-    padding: 4px;
-}
-
-
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    -webkit-animation-name: fadeIn; /* Fade in the background */
-    -webkit-animation-duration: 0.4s;
-    animation-name: fadeIn;
-    animation-duration: 0.4s
-}
-
-/* Modal Content */
-.modal-content {
-    position: fixed;
-    bottom: 0;
-    background-color: #fefefe;
-    width: 100%;
-    -webkit-animation-name: slideIn;
-    -webkit-animation-duration: 0.4s;
-    animation-name: slideIn;
-    animation-duration: 0.4s
-}
-
-/* The Close Button */
-.close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.close1 {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close1:hover,
-.close1:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.modal-header {
-    padding: 2px 16px;
-    background-color: #AC3A66;
-    color: white;
-}
-
-.modal-body {padding: 2px 16px;}
-
-.modal-footer {
-    padding: 2px 16px;
-    background-color: #AC3A66;
-    color: white;
-}
-
-/* Add Animation */
-@-webkit-keyframes slideIn {
-    from {bottom: -300px; opacity: 0}
-    to {bottom: 0; opacity: 1}
-}
-
-@keyframes slideIn {
-    from {bottom: -300px; opacity: 0}
-    to {bottom: 0; opacity: 1}
-}
-
-@-webkit-keyframes fadeIn {
-    from {opacity: 0}
-    to {opacity: 1}
-}
-
-@keyframes fadeIn {
-    from {opacity: 0}
-    to {opacity: 1}
-}
-
-
-
-#rcorners1 {
-  font-family: sans-serif;
-  font-weight: 300;
-    border-radius: 0px 0px 25px 0px;
-    background: #AC3A66;
-    padding: 20px;
-    width: 280px;
-    height: 90px;
-position: fixed;
-   top:0;
-   left:0;
-}
-
-.thick-green-border {
-    border-color: black;
-    border-width: 10px;
-    border-style: solid;
-    border-radius: 50%;
-    width:100px;
-    display:inline-block;
-    margin-left:10px;
-    margin-right:5px;
-  }
-
-  #htext {
-    display:inline-block;
-  }
-
   </style>
 </head>
 
 <body>
 
-
-
-<div  id="rcorners1"><h1  id="htext" style="color:white;">NEScat</h1><img class="thick-green-border" src="jsnes/nescat.png"><br><a id="rcorners2" href="/">Play Singleplayer!</a></div>
-
 <div id="content">
-  <center><h1 id="message">Multiplayer (beta): Waiting for Player 2</h1><center>
+  <h1 id="message">Waiting for Player 2</h1>
   <p id="games-list">
     <select id="current-game" onchange="newGame()">
       <option value="" disabled="disabled" selected="selected">Please select a game</option>
     </select>
   </p>
-  <p id="keys">Arrow Keys = Joypad, X = a, Z = b, Enter = start, Ctrl = select</p><br>
-  <p class="keys">Note: Multiplayer mode is still in beta so you may notice some issues</p>
-  <div id="emulator"></div></div>
-
-
-<center  style="padding-top: 10px;"><button class="nesbtn" onclick="reloadFunction()">New Game</button><a href="/"><button class="nesbtn">Singleplayer</button></a></center>
-<div id="footer">
-<hr />
-<div align="center">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- nescat2 -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:728px;height:90px"
-     data-ad-client="ca-pub-6037554166107597"
-     data-ad-slot="9784589064"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+  <p id="keys">Arrow keys = joypad, X = a, Z = b, Enter = start, Ctrl = select</p>
+  <div id="emulator"></div>
 </div>
-<center><img src="https://i.imgur.com/aB11XXK.png" style="width:412px;height:171px;"></center>
-<center><p class="firefox" id="links">Copyright NEScat 2016. Play Multiplayer NES Games Online. By <a href="https://about.me/gautham.gg" target="_blank">Gautham Elango</a>, a <a href="https://www.gcubed.co" target="_blank">gCubed</a> product. <button id="myBtn">Help</button><button id="myBtn1">About</button></p></center>
-
-
-<!-- The Modal -->
-
-
-  <!-- Modal content -->
-
-<hr />
-</div>
-
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times</span>
-      <h2>Help</h2>
-    </div>
-    <div class="modal-body">
-    <center><img src="https://i.imgur.com/aB11XXK.png" style="width:412px;height:171px;"></center>
-      <center><img src="https://i.imgur.com/aRLNTXk.jpg" style="width:412px;height:171px;"></center>
-      <center><img src="https://i.imgur.com/UcFz0kj.jpg" style="width:412px;height:171px;"></center>
-    </div>
-    <div class="modal-footer">
-      <h3></h3>
-    </div>
-  </div>
-</div>
-
-<div id="myModal1" class="modal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close1">&times</span>
-      <h2>About</h2>
-    </div>
-    <div class="modal-body">
-          <p>NEScat is an open-source web application where you can play singleplayer and multiplayer NES games.</p><br>
-      <p>It is based on <a href="https://github.com/olahol">@olahol</a>'s <a href="https://github.com/olahol/melody-jsnes">olahol/melody-jsnes</a> project.</p>
-      <p>I use the Go programming language and the Go HTTP Server. I also use the Go Melody framework. Multiplayer is done with WebSockets, JSNES is used to emulate the NES ROMS with JavaScript. Bootstrap is used for the frontend. I run the app on AWS EC2 Ubuntu Server 14.04.</p><br>
-      <p>If you wish to contribute, use our code or look at how things are done feel free to head over to my GitHub page: <a href="https://github.com/gg2001/NEScat">gg2001/NEScat</a>.</p><br>
-      <p>Many thanks to <a href="https://github.com/olahol">@olahol</a> for the original <a href="https://github.com/olahol/melody-jsnes">olahol/melody-jsnes</a> and the <a href="https://github.com/olahol/melody">olahol/melody</a> framework. Also many thanks to <a href="https://github.com/bfirsh">@bfirsh</a> for creating the JavaScript NES Emulator, <a href="https://github.com/bfirsh/jsnes">bfirsh/jsnes</a>.</p><br>
-      <p>An Ionic iOS application is in the works, stay tuned for that!</p>
-    </div>
-    <div class="modal-footer">
-      <h3></h3>
-    </div>
-  </div>
-</div>
-
 
 <script src="jsnes/lib/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="jsnes/lib/dynamicaudio-min.js" type="text/javascript" charset="utf-8"></script>
@@ -315,25 +58,6 @@ position: fixed;
 <script src="jsnes/source/rom.js" type="text/javascript" charset="utf-8"></script>
 <script src="jsnes/source/ui.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
-
-/*
-setTimeout(function(){
-    
-document.getElementById("current-game").selectedIndex = 2;
-}, 15000);
-*/
-/*
-setTimeout(function(){
-    var $options = $('#current-game').find('option'),
-    random = ~~(Math.random() * $options.length);
-
-$options.eq(random).prop('selected', true);
-}, 2);
-*/
-if (window.location.href == "https://nescat.gcubed.co/multi") {
-          window.location.href = "http://nescat.gcubed.co/multi";
-}
-
 $(function () {
 var url = "ws://" + window.location.host + "/ws";
 var ws = new WebSocket(url);
@@ -424,11 +148,11 @@ function startPlaying(data) {
   if (window.player == 1) {
     newGame();
     $("#games-list").show();
-    $("#message").text("Multiplayer: You are Player 1");
+    $("#message").text("You are Player 1");
   }
   if (window.player == 2) {
     $("#games-list").hide();
-    $("#message").text("Multiplayer: You are Player 2");
+    $("#message").text("You are Player 2");
   }
 }
 function newGame() {
@@ -448,7 +172,7 @@ function stopPlaying() {
   }
   clearScreen();
   window.player = 0;
-  $("#message").text("Multiplayer: Waiting for Player 2");
+  $("#message").text("Waiting for Player 2");
 }
 ws.onmessage = function (msg) {
   var parts = msg.data.split(" ");
@@ -490,93 +214,6 @@ $(document).bind("keyup", function(evt) {
 clearScreen();
 loadGames();
 });
-
-
-
-
-// Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-
-var modal1 = document.getElementById('myModal1');
-
-// Get the button that opens the modal
-var btn1 = document.getElementById("myBtn1");
-
-// Get the <span> element that closes the modal
-var span1 = document.getElementsByClassName("close1")[0];
-
-// When the user clicks the button, open the modal
-btn1.onclick = function() {
-    modal1.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span1.onclick = function() {
-    modal1.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal1) {
-        modal1.style.display = "none";
-    }
-}
-
-
-function reloadFunction() {
-  window.location.reload(false); 
-}
-function getBrowserInfo()
-{
-  var ua = navigator.userAgent, tem,
-  M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
-  if(/trident/i.test(M[1]))
-  {
-    tem=  /\brv[ :]+(\d+)/g.exec(ua) || [];
-    return 'IE '+(tem[1] || '');
-  }
-  if(M[1]=== 'Chrome')
-  {
-    tem= ua.match(/\b(OPR|Edge)\/(\d+)/);
-    if(tem!= null) return tem.slice(1).join(' ').replace('OPR', 'Opera');
-  }
-  M = M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
-  if((tem= ua.match(/version\/(\d+)/i))!= null) 
-    M.splice(1, 1, tem[1]);
-  return M.join(' ');
-}
-var browserInfo = getBrowserInfo();
-//alert(browserInfo);
-if (browserInfo.indexOf('Firefox') >= 0) {
-  alert("You are running Mozilla Firefox, which is known to cause issues with multiplayer. Please use another browser like Chrome, Edge, IE, Safari or Opera. We are working to fix this issue.");
-
-  $( ".firefox" ).append( "<br><p id='links' style='color:red;'>You are running Mozilla Firefox, which is known to cause issues with multiplayer. Please use another browser like Chrome, Edge, IE, Safari or Opera. We are working to fix this issue.</p>" );
-}
-
-
 </script>
 </body>
 </html>
