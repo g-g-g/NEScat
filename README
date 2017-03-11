@@ -1,3 +1,10 @@
 This is the repository for the nescat go web application. Mirrors: https://git.gcubed.co/nescat/ and https://github.com/g-g-g/nescat
 
+NEScat (https://nescat.gcubed.co/) is a website to play NES or Nintendo Entertainment System games in a browser in singleplayer and online multiplayer modes with only JavaScript, no plugins necessary. It is based on melody-jsnes by olahal (https://github.com/olahol/melody-jsnes) and jsnes by bfirsh (https://github.com/bfirsh/jsnes). The server side components were programmed in Go with Gin handling the web aspects and Melody using websockets to allow multiplayer. 
+
+Specifications
+Go: 1.7.5
+Gin: 1.1.4
+JSNES: commit 716063d431466b037eb395aba38672a3048f2165
+
 MIT License 2017. A gCubed product by gautham elango.
