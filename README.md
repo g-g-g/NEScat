@@ -7,3 +7,7 @@ NEScat is a website to play NES or Nintendo Entertainment System games in a brow
 
 ![Screenshot 1](screenshot1.png)
 ![Screenshot 2](screenshot2.png)
+
+## Installation
+  
+  $ yo
