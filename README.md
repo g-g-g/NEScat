@@ -1,4 +1,4 @@
-![Logo](logo1.png)
+![Logo](logo.png)
 # NEScat
 
 [![Go 1.7.5](https://img.shields.io/badge/Go-1.7.5-brightgreen.svg)](https://golang.org/doc/devel/release.html) [![Gin 1.1.4](https://img.shields.io/badge/Gin-1.1.4-brightgreen.svg)](https://golang.org/doc/devel/release.html) [![Go Report Card](https://goreportcard.com/badge/github.com/g-g-g/nescat)](https://goreportcard.com/report/github.com/g-g-g/nescat)
