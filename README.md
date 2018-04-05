@@ -16,3 +16,5 @@ NEScat is a website to play NES or Nintendo Entertainment System games in a brow
     $ go get
     $ go build
     $ ./nescat
+
+It will be available at [http://localhost:8000/](http://localhost:8000/)
