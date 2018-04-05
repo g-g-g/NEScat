@@ -8,6 +8,11 @@ NEScat is a website to play NES or Nintendo Entertainment System games in a brow
 ![Screenshot 1](screenshot1.png)
 ![Screenshot 2](screenshot2.png)
 
-## Installation
-  
-  $ yo
+## Usage
+
+    $ git clone https://github.com/gg2001/nescat.git
+    $ cd nescat
+    $ git submodule update --init --recursive
+    $ go get
+    $ go build
+    $ ./nescat
